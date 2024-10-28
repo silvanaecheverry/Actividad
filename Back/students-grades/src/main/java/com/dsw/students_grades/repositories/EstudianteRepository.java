@@ -1,9 +1,9 @@
-package com.dsw.students_grades.repository;
+package com.dsw.students_grades.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import co.edu.uniandes.dse.diariomedico.entities.PacienteEntity;
+import com.dsw.students_grades.entities.EstudianteEntity;
 
 
 /**
@@ -15,3 +15,4 @@ import co.edu.uniandes.dse.diariomedico.entities.PacienteEntity;
 @Repository
 public interface EstudianteRepository extends JpaRepository<EstudianteEntity, Long> {
 
+}
