@@ -57,7 +57,7 @@ public class CoEvaluacionService {
 	 */
     @Transactional
     public List<CoEvaluacionEntity> getCoEvaluaciones() {
-        log.info("Inicia proceso de consultar todas las coevalluaciones");
+        log.info("Inicia proceso de consultar todas las coevaluaciones");
         return coEvaluacionRepository.findAll();
     }
 
