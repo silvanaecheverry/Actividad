@@ -9,13 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dsw.students_grades.entities.CoEvaluacionEntity;
 import com.dsw.students_grades.entities.EstudianteEntity;
-import com.dsw.students_grades.entities.CoEvaluacionEntity;
-import com.dsw.students_grades.entities. CoEvaluacionEntity;
 import com.dsw.students_grades.exceptions.EntityNotFoundException;
 import com.dsw.students_grades.exceptions.ErrorMessage;
 import com.dsw.students_grades.exceptions.IllegalOperationException;
 import com.dsw.students_grades.repositories.CoEvaluacionRepository;
-import com.dsw.students_grades.repositories.EstudianteRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
