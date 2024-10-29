@@ -97,7 +97,7 @@ public class EstudianteServiceTest {
             EstudianteEntity estudiante = factory.manufacturePojo(EstudianteEntity.class);
             estudiante.setNombre(null);
             estudianteService.createEstudiante(estudiante);
-        } , "Se espera IllegalOperationException cuando el Nombre es nulo");
+        }  );
     }
 
     @Test
@@ -106,7 +106,7 @@ public class EstudianteServiceTest {
             EstudianteEntity estudiante = factory.manufacturePojo(EstudianteEntity.class);
             estudiante.setLogin(null);
             estudianteService.createEstudiante(estudiante);
-        } , "Se espera IllegalOperationException cuando el Nombre es nulo");
+        }  );
     }
 
     @Test
@@ -115,7 +115,7 @@ public class EstudianteServiceTest {
             EstudianteEntity estudiante = factory.manufacturePojo(EstudianteEntity.class);
             estudiante.setNombre("");
             estudianteService.createEstudiante(estudiante);
-        } , "Se espera IllegalOperationException cuando el Nombre es nulo");
+        } );
     }
 
     @Test
@@ -124,7 +124,7 @@ public class EstudianteServiceTest {
             EstudianteEntity estudiante = factory.manufacturePojo(EstudianteEntity.class);
             estudiante.setLogin("");
             estudianteService.createEstudiante(estudiante);
-        } , "Se espera IllegalOperationException cuando el Nombre es nulo");
+        } );
     }
 
     /**
@@ -195,7 +195,7 @@ public class EstudianteServiceTest {
             EstudianteEntity estudianteOld = estudiantes.get(0);
             estudianteOld.setId(0L);
             estudianteService.updateEstudiante(estudianteOld.getId(), estudiante);
-        } , "Se espera IllegalOperationException cuando el Nombre es nulo");
+        });
     }
 
     @Test
@@ -205,7 +205,7 @@ public class EstudianteServiceTest {
             EstudianteEntity estudianteOld = estudiantes.get(0);
             estudiante.setNombre(null);
             estudianteService.updateEstudiante(estudianteOld.getId(), estudiante);
-        } , "Se espera IllegalOperationException cuando el Nombre es nulo");
+        }  );
     }
 
     @Test
@@ -215,7 +215,7 @@ public class EstudianteServiceTest {
             EstudianteEntity estudianteOld = estudiantes.get(0);
             estudiante.setNombre("");
             estudianteService.updateEstudiante(estudianteOld.getId(), estudiante);
-        } , "Se espera IllegalOperationException cuando el Nombre es nulo");
+        }  );
     }
 
     @Test
@@ -225,7 +225,7 @@ public class EstudianteServiceTest {
             EstudianteEntity estudianteOld = estudiantes.get(0);
             estudiante.setLogin(null);
             estudianteService.updateEstudiante(estudianteOld.getId(), estudiante);
-        } , "Se espera IllegalOperationException cuando el Nombre es nulo");
+        }  );
     }
 
     @Test
@@ -235,7 +235,7 @@ public class EstudianteServiceTest {
             EstudianteEntity estudianteOld = estudiantes.get(0);
             estudiante.setLogin("");
             estudianteService.updateEstudiante(estudianteOld.getId(), estudiante);
-        } , "Se espera IllegalOperationException cuando el Nombre es nulo");
+        }  );
     }
 
     /**
@@ -257,7 +257,7 @@ public class EstudianteServiceTest {
             EstudianteEntity estudiante = estudiantes.get(0);
             estudiante.setId(0L);
             estudianteService.deleteEstudiante(estudiante.getId());
-        } , "Se espera IllegalOperationException cuando el Nombre es nulo");
+        }  );
     }
 
     @Test
@@ -266,7 +266,7 @@ public class EstudianteServiceTest {
             EstudianteEntity estudiante = estudiantes.get(0);
             estudiante.setGrupo(grupo);
             estudianteService.deleteEstudiante(estudiante.getId());
-        } , "Se espera IllegalOperationException cuando el Nombre es nulo");
+        }  );
     }
 
     @Test
@@ -275,7 +275,7 @@ public class EstudianteServiceTest {
             EstudianteEntity estudiante = estudiantes.get(0);
             estudiante.setEvaluacionesHechas(evaluacionesHechas);
             estudianteService.deleteEstudiante(estudiante.getId());
-        } , "Se espera IllegalOperationException cuando el Nombre es nulo");
+        }  );
     }
 
     @Test
@@ -284,7 +284,7 @@ public class EstudianteServiceTest {
             EstudianteEntity estudiante = estudiantes.get(0);
             estudiante.setEvaluacionesRecibidas(evaluacionesRecibidas);
             estudianteService.deleteEstudiante(estudiante.getId());
-        } , "Se espera IllegalOperationException cuando el Nombre es nulo");
+        }  );
     }
 
 
