@@ -30,11 +30,11 @@ public class EstudianteEntity extends BaseEntity {
 
     //Relaciones
     @PodamExclude
-    @OneToMany(mappedBy = "estudiante", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "estudianteCalificador", fetch = FetchType.LAZY)
     private List<CoEvaluacionEntity> evaluacionesHechas = new ArrayList<>();
 
     @PodamExclude
-    @OneToMany(mappedBy = "estudiante", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "estudianteCalificado", fetch = FetchType.LAZY)
     private List<CoEvaluacionEntity> evaluacionesRecibidas = new ArrayList<>();
 
     @PodamExclude

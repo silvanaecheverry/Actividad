@@ -29,5 +29,9 @@ public class CoEvaluacionEntity extends BaseEntity {
     
     @PodamExclude
     @ManyToOne
-    private EstudianteEntity estudiante;
+    private EstudianteEntity estudianteCalificado;
+
+    @PodamExclude
+    @ManyToOne
+    private EstudianteEntity estudianteCalificador;
 }
