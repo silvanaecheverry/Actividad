@@ -75,11 +75,11 @@ public class GrupoService {
     public GrupoEntity getGrupo(Long grupoId)
         throws EntityNotFoundException {
             log.info("Inicia proceso de consultar Grupo con id = {}", grupoId);
-            Optional<GrupoEntity> GrupoEntity = grupoRepository.findById(grupoId);
-            if (GrupoEntity.isEmpty())
+            Optional<GrupoEntity> grupoEntity = grupoRepository.findById(grupoId);
+            if (grupoEntity.isEmpty())
                 throw new EntityNotFoundException(ErrorMessage.GRUPO_NOT_FOUND);
             log.info("Termina proceso de consultar Grupo con id = {}", grupoId);
-            return GrupoEntity.get();
+            return grupoEntity.get();
     }
 
     /**
@@ -115,8 +115,9 @@ public class GrupoService {
     /**
      * Eliminar un Grupo por Id.
      * 
-     * @param GrupoId El ID del Grupo a eliminar.
-     * @throws 
+     * @param grupoId El ID del Grupo a eliminar.
+     * @throws EntityNotFoundException Si la entidad no se encuentra
+     * @throws IllegalOperationException Si alguna relacion existe
      */
     @Transactional
     public void deleteGrupo(Long grupoId)

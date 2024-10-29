@@ -117,7 +117,8 @@ public class EstudianteService {
      * Eliminar un estudiante por Id.
      * 
      * @param estudianteId El ID del estudiante a eliminar.
-     * @throws 
+     * @throws EntityNotFoundException Si la entidad no se encuentra
+     * @throws IllegalOperationException Si alguna relacion existe
      */
     @Transactional
     public void deleteEstudiante(Long estudianteId)
