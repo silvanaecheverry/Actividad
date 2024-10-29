@@ -10,6 +10,6 @@ import lombok.Data;
 
 @Data
 public class GrupoDTO {
-    private int numero;
+    private Integer numero;
     private String nombre;
 }
