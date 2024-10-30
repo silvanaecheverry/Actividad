@@ -1,0 +1,380 @@
+{
+	"info": {
+		"_postman_id": "a1708944-ef8c-4b95-b70f-4106baea2fe0",
+		"name": "GrupoCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37985286"
+	},
+	"item": [
+		{
+			"name": "Crear Grupo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"grupo_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Response status code is 201\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numero\" : 12,\r\n    \"nombre\" : \"DSW G1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/grupos",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"grupos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Grupo Invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numero\" : 12,\r\n    \"nombre\" : \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/grupos",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"grupos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Grupo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/grupos/{{grupo_id}}",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"grupos",
+						"{{grupo_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Grupo Invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/grupos/0",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"grupos",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Grupos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of directories > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/grupos",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"grupos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Grupo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numero\" : 12,\r\n    \"nombre\" : \"DSW G1 NewName\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/grupos/{{grupo_id}}",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"grupos",
+						"{{grupo_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Grupo Inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 404\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numero\" : 12,\r\n    \"nombre\" : \"DSW G1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/grupos/0",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"grupos",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Grupo Invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 412\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(412);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numero\" : 12,\r\n    \"nombre\" : \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/grupos/{{grupo_id}}",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"grupos",
+						"{{grupo_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Grupo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 204\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/grupos/{{grupo_id}}",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"grupos",
+						"{{grupo_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Grupo Inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 404\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/grupos/0",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"grupos",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
