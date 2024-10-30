@@ -1,0 +1,9 @@
+#formLogin{
+    background-color: lightseagreen;
+    display: flexbox;
+    text-align: center;
+    align-items: center;
+    padding: 50px;
+    color: aliceblue;
+    border-radius: 25px;
+}
