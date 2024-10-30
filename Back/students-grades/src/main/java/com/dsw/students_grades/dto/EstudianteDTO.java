@@ -9,6 +9,7 @@ import lombok.Data;
 
 @Data
 public class EstudianteDTO {
+    private Long id;
     private String login;
     private String nombre;
 }

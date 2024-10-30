@@ -12,6 +12,7 @@ import lombok.Data;
 
 @Data
 public class CoEvaluacionDTO {
+    private Long id;
     private Double calificacion;
     private String comentario;
     private Date fecha;

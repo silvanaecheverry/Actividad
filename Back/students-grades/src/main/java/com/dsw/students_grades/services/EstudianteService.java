@@ -75,11 +75,11 @@ public class EstudianteService {
     @Transactional
     public EstudianteEntity getEstudiante(Long estudianteId)
         throws EntityNotFoundException {
-            log.info("Inicia proceso de consultar estudiante con id = {0}", estudianteId);
+            log.info("Inicia proceso de consultar estudiante con id = {}", estudianteId);
             Optional<EstudianteEntity> estudianteEntity = estudianteRepository.findById(estudianteId);
             if (estudianteEntity.isEmpty())
                 throw new EntityNotFoundException(ErrorMessage.ESTUDIANTE_NOT_FOUND);
-            log.info("Termina proceso de consultar estudiante con id = {0}", estudianteId);
+            log.info("Termina proceso de consultar estudiante con id = {}", estudianteId);
             return estudianteEntity.get();
     }
 
@@ -96,7 +96,7 @@ public class EstudianteService {
     @Transactional
     public EstudianteEntity updateEstudiante(Long estudianteId, EstudianteEntity estudiante)
         throws EntityNotFoundException, IllegalOperationException{
-            log.info("Inicia proceso de actualizar el estudiante con id = {0}", estudianteId);
+            log.info("Inicia proceso de actualizar el estudiante con id = {}", estudianteId);
             Optional<EstudianteEntity> estudianteEntity = estudianteRepository.findById(estudianteId);
             if (estudianteEntity.isEmpty())
                     throw new EntityNotFoundException(ErrorMessage.ESTUDIANTE_NOT_FOUND);
@@ -109,7 +109,7 @@ public class EstudianteService {
 
             estudiante.setId(estudianteId);
 
-            log.info("Termina proceso de actualizar el estudiante con id = {0}", estudianteId);
+            log.info("Termina proceso de actualizar el estudiante con id = {}", estudianteId);
             return estudianteRepository.save(estudiante);
     }
 
@@ -123,7 +123,7 @@ public class EstudianteService {
     @Transactional
     public void deleteEstudiante(Long estudianteId)
         throws EntityNotFoundException, IllegalOperationException{
-        log.info("Inicia proceso de borrar el estudiante con id = {0}", estudianteId);
+        log.info("Inicia proceso de borrar el estudiante con id = {}", estudianteId);
         Optional<EstudianteEntity> estudianteEntity = estudianteRepository.findById(estudianteId);
         if (estudianteEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.ESTUDIANTE_NOT_FOUND);
@@ -144,7 +144,7 @@ public class EstudianteService {
                 " porque tiene un grupo asociado");
 
         estudianteRepository.deleteById(estudianteId);
-        log.info("Termina proceso de borrar el estudiante con id = {0}", estudianteId);
+        log.info("Termina proceso de borrar el estudiante con id = {}", estudianteId);
     }
     
 }

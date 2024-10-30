@@ -10,6 +10,7 @@ import lombok.Data;
 
 @Data
 public class GrupoDTO {
+    private Long id;
     private Integer numero;
     private String nombre;
 }
