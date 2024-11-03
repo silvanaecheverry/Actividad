@@ -44,7 +44,7 @@ public class CoEvaluacionService {
                     throw new IllegalOperationException("La fecha no puede ser nula");
 
             if((coEvaluacion.getCalificacion() == null) || (coEvaluacion.getCalificacion() > 5.0) || (coEvaluacion.getCalificacion() < 0))
-                    throw new IllegalOperationException("La calificacion no puede ser ula y debe estar entre 0 y 5.0");
+                    throw new IllegalOperationException("La calificacion no puede ser nula y debe estar entre 0 y 5.0");
 
             log.info("Termina proceso de creación de la coevaluacion");
             return coEvaluacionRepository.save(coEvaluacion);
@@ -105,7 +105,7 @@ public class CoEvaluacionService {
                     throw new IllegalOperationException("La fecha no puede ser nula");
 
             if((coEvaluacion.getCalificacion() == null) || (coEvaluacion.getCalificacion() > 5.0) || (coEvaluacion.getCalificacion() < 0))
-                    throw new IllegalOperationException("La calificacion no puede ser ula y debe estar entre 0 y 5.0");
+                    throw new IllegalOperationException("La calificacion no puede ser nula y debe estar entre 0 y 5.0");
 
 
             coEvaluacion.setId( coEvaluacionId);

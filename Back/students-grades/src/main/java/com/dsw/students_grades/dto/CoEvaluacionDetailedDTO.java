@@ -1,7 +1,5 @@
 package com.dsw.students_grades.dto;
 
-import java.util.Date;
-
 import lombok.Data;
 
 /**
@@ -11,9 +9,7 @@ import lombok.Data;
  */
 
 @Data
-public class CoEvaluacionDTO {
-    private Long id;
-    private Double calificacion;
-    private String comentario;
-    private Date fecha;
+public class CoEvaluacionDetailedDTO extends CoEvaluacionDTO{
+    private EstudianteDTO estudianteCalificado;
+    private EstudianteDTO estudianteCalificador;
 }
