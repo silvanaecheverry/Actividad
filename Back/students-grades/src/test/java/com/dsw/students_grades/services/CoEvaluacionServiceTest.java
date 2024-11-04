@@ -17,8 +17,6 @@ import org.springframework.context.annotation.Import;
 
 import com.dsw.students_grades.entities.CoEvaluacionEntity;
 import com.dsw.students_grades.entities.EstudianteEntity;
-import com.dsw.students_grades.entities.CoEvaluacionEntity;
-import com.dsw.students_grades.entities.GrupoEntity;
 import com.dsw.students_grades.exceptions.EntityNotFoundException;
 import com.dsw.students_grades.exceptions.IllegalOperationException;
 import uk.co.jemos.podam.api.PodamFactory;
@@ -41,8 +39,6 @@ public class CoEvaluacionServiceTest {
     private EstudianteEntity estudiante1;
     private EstudianteEntity estudiante2;
     private List<CoEvaluacionEntity> coEvaluaciones = new ArrayList<>();
-
-    private GrupoEntity grupo;
 
     @BeforeEach
     void setUp() {
