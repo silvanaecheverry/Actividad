@@ -8,11 +8,11 @@
 </head>
 <body>
   <div id="formLogin">
-    <h1> LOGIN </h1>
-    <form>
+    <h1>LOGIN</h1>
+    <form (ngSubmit)="onSubmit()">
       <div>
         <label for="login">Login: </label>
-        <input type="text" id="login">
+        <input type="text" id="login" [(ngModel)]="login" name="login">
         <input type="submit" value="Enviar">
       </div>
     </form>
