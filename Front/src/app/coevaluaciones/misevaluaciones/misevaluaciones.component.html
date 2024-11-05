@@ -1,1 +1,18 @@
-<p>misevaluaciones works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Opciones de Evaluación</title>
+  <link rel="stylesheet" href="misevaluaciones.component.css">
+</head>
+<body>
+    <h1>Evaluación</h1>
+    <p><b>Calificación: </b>{{ calificacion }}</p>
+
+    <h2>Comentarios de tus compañeros: </h2>
+    <ul>
+        <li *ngFor="let comentario of comentarios">{{ comentario }}</li>
+    </ul>
+</body>
+
+</html>

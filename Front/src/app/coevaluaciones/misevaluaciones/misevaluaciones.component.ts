@@ -9,7 +9,8 @@ import { Estudiante } from '../../estudiante/estudiante.model';
   styleUrl: './misevaluaciones.component.css'
 })
 export class MisevaluacionesComponent implements OnInit{
-  calificacion : number = 0;
+  calificacion!: number;
+  comentarios!: string[];
   private estudianteService: EstudianteService; 
   private estudianteCalificadoEvaluacionService: EstudianteCalificadoEvaluacionService;
 
@@ -21,7 +22,9 @@ export class MisevaluacionesComponent implements OnInit{
     this.estudianteCalificadoEvaluacionService = estudianteCalificadoEvaluacionService;
   }
 
-    ngOnInit(){}
-
-
+  async ngOnInit(){
+    const currentUser: Estudiante | null = this.estudianteService.getCurrentUser();
+    this.calificacion = await this.estudianteCalificadoEvaluacionService.getAverage(currentUser);
+    this.comentarios = await this.estudianteCalificadoEvaluacionService.getComments(currentUser);
+  }
 }
