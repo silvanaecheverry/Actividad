@@ -146,6 +146,30 @@ public class EstudianteServiceTest {
     }
 
     /**
+     * Pruebas para obtener un estudiante con un login especifico
+     * @throws EntityNotFoundException
+     */
+
+     @Test
+     void getEstudianteLogin() throws EntityNotFoundException {
+         EstudianteEntity estudiante = estudiantes.get(0);
+         EstudianteEntity estudianteBD = estudianteService.getEstudiantebyLogin(estudiante.getLogin());
+ 
+         assertEquals(estudiante.getId(), estudianteBD.getId());
+         assertEquals(estudiante.getNombre(), estudianteBD.getNombre());
+         assertEquals(estudiante.getLogin(), estudianteBD.getLogin());
+ 
+     }
+
+     @Test
+     void getEstudianteLoginInvalido() throws EntityNotFoundException {
+        assertThrows(EntityNotFoundException.class, () -> {
+            EstudianteEntity estudiante = factory.manufacturePojo(EstudianteEntity.class);
+            estudianteService.getEstudiantebyLogin(estudiante.getLogin());
+        });
+     }
+
+    /**
      * Pruebas para obtener un estudiante con un id especifico
      * @throws EntityNotFoundException
      */

@@ -35,6 +35,13 @@ public class EstudianteController {
         return modelMapper.map(estudiante, EstudianteDTO.class);
     }
 
+    @GetMapping(value = "/login/{login}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public EstudianteDTO getEstudiante(@PathVariable String login) throws EntityNotFoundException {
+        EstudianteEntity estudiante  = estudianteService.getEstudiantebyLogin(login);
+        return modelMapper.map(estudiante, EstudianteDTO.class);
+    }
+
     /** Obtiene todos los estudiantes de la base de datos
      * 
      * @return Lista de estudiantes mapeados al DTO

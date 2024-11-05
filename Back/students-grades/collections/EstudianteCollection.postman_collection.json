@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "05667f30-cf3b-4446-b0d9-d6b46f468368",
+		"_postman_id": "7d619b1e-b0a1-41f5-b20d-fd17507f8460",
 		"name": "EstudianteCollection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37985286"
@@ -15,6 +15,7 @@
 						"exec": [
 							"var data = pm.response.json()\r",
 							"pm.globals.set(\"estudiante_id\", data.id);\r",
+							"pm.globals.set(\"estudiante_login\", data.login);\r",
 							"\r",
 							"pm.test(\"Response status code is 201\", function () {\r",
 							"    pm.expect(pm.response.code).to.equal(201);\r",
@@ -116,6 +117,39 @@
 					"path": [
 						"estudiantes",
 						"{{estudiante_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Estudiante Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/estudiantes/login/{{estudiante_login}}",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"estudiantes",
+						"login",
+						"{{estudiante_login}}"
 					]
 				}
 			},

@@ -31,6 +31,11 @@ public class EstudianteService {
     @Autowired
     EstudianteRepository estudianteRepository;
 
+    public boolean isLoginUsed(String login){
+        List<EstudianteEntity> estudianteList = estudianteRepository.findByLogin(login);
+        return !estudianteList.isEmpty();
+    }
+
     /**
      * Guarda un nuevo estudiante.
      *
@@ -46,6 +51,9 @@ public class EstudianteService {
 
             if((estudiante.getLogin() == null) || (estudiante.getLogin().isEmpty()))
                     throw new IllegalOperationException("El login no puede ser nulo o vacio");
+
+            if(isLoginUsed(estudiante.getLogin()))
+                    throw new IllegalOperationException("El login ya esta usado");
 
             if((estudiante.getNombre() == null) || (estudiante.getNombre().isEmpty()))
                     throw new IllegalOperationException("El nombre no puede ser nulo o vacio");
@@ -81,6 +89,17 @@ public class EstudianteService {
                 throw new EntityNotFoundException(ErrorMessage.ESTUDIANTE_NOT_FOUND);
             log.info("Termina proceso de consultar estudiante con id = {}", estudianteId);
             return estudianteEntity.get();
+    }
+
+    @Transactional
+    public EstudianteEntity getEstudiantebyLogin(String login)
+        throws EntityNotFoundException {
+            log.info("Inicia proceso de consultar estudiante con login = {}", login);
+            List<EstudianteEntity> estudianteList = estudianteRepository.findByLogin(login);
+            if (estudianteList.isEmpty())
+                throw new EntityNotFoundException(ErrorMessage.ESTUDIANTE_NOT_FOUND);
+            log.info("Termina proceso de consultar estudiante con login = {}", login);
+            return estudianteList.get(0);
     }
 
     /**
